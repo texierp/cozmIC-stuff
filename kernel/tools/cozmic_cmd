@@ -1,0 +1,1 @@
+python3 dip-header-generator.py cozmIC.img --vid 33 --pid 1 --vendor 'cozmic' --product 'Mikrobus' --product-version 1
