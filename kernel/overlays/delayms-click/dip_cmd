@@ -1,0 +1,1 @@
+python3 ../../tools/dip-header-generator.py delayms.img --vid 2017 --pid 1 --vendor 'cozmic' --product 'delayms click cozmIC' --product-version 1
