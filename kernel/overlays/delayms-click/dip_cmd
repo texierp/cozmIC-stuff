@@ -1,1 +1,6 @@
-python3 ../../tools/dip-header-generator.py delayms.img --vid 2017 --pid 1 --vendor 'cozmic' --product 'delayms click cozmIC' --product-version 1
+python3 ../../tools/dip-header-generator.py delayms.img --vid 2017 --pid 1 --vendor 'cozmIC' --product 'delaymsClick' --product-version 1
+
+and
+
+mkdir -p /lib/firmware/nextthingco/chip/
+cp dip-7e1-1.dtbo /lib/firmware/nextthingco/chip/
