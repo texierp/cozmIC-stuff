@@ -64,12 +64,12 @@
 			pinctrl-0 = <&chip_en>;
 			status = "okay";
 			
-			sc16is750: sc16is750@4d {
+			sc16is750: sc16is750@4c {
 				compatible = "nxp,sc16is750";
-			    	reg = <0x4D>;
-			    	clocks = <&osc24M>;
+			    	reg = <0x4c>;
+			    	clocks = <&osc14M>;
 			    	interrupt-parent = <&pio>;
-				interrupts = <4 1 IRQ_TYPE_EDGE_FALLING>;
+				interrupts = <4 1 IRQ_TYPE_EDGE_FALLING>;						
          		};
                 };
 	};
