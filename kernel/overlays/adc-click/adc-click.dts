@@ -1,7 +1,7 @@
 /*
  * Copyright 2017 cozmIC
  *
- * Pierre-Jean TEXIER <pjtexier@cozmic.com>
+ * Pierre-Jean TEXIER <pjtexier@cozmic.co>
  *
  * This file is dual-licensed: you can use it either under the terms
  * of the GPL or the X11 license, at your option. Note that this dual
@@ -46,40 +46,32 @@
 /plugin/;
 
 #include <dt-bindings/gpio/gpio.h>
-
 #include <dt-bindings/pinctrl/sun4i-a10.h>
+#include <dt-bindings/interrupt-controller/irq.h>
 
 / {
 	compatible = "nextthing,chip", "allwinner,sun5i-r8";
 
-	/* Enable the PWM */
 	fragment@0 {
-		target = <&pwm>;
-		__overlay__ {
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm0_pins>;
-			status = "okay";
-		};
-	};
-		
-	fragment@1 {
-		target-path = "/";
+	
+		target = <&spi2>;
 
 		__overlay__ {
-			gpio_exporter: gpio-exporter {
-				compatible = "linux,gpio-exporter";
-				
-				out_RL1 {
-					gpios = <&xio 0 1>;
-					output;
-					initial-state = <0>;
-				};
-				
-				out_RL2 {
-					gpios = <&xio 1 1>;
-					output;
-					initial-state = <0>;
-				};
+		
+			pinctrl-names = "default";
+			pinctrl-0 = <&spi2_pins_a>,
+				    <&spi2_cs0_pins_a>;
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			adc: mcp3204@0 {
+				compatible = "mcp3204";
+				#io-channel-cells = <1>;	
+				#address-cells = <1>;
+				#size-cells = <0>;		
+				reg = <0>;
+				spi-max-frequency = <1000000>;
 			};
 		};
 	};

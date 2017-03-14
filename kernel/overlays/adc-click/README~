@@ -13,14 +13,14 @@ mount -t configfs none /sys/kernel/config
 We can now advise the kernel that a new device tree is going to be
 applied:
 
-mkdir /sys/kernel/config/device-tree/overlays/cozmic
+mkdir /sys/kernel/config/device-tree/overlays/eth-click
 
 And now, we can apply the overlay
 
-cat cozmic.dtbo > /sys/kernel/config/device-tree/overlays/cozmic/dtbo
+cat eth-click.dtbo > /sys/kernel/config/device-tree/overlays/eth-click/dtbo
 
 
 If you want to remove it later on, simply remove the directory you
 created:
 
-rmdir /sys/kernel/config/device-tree/overlays/cozmic
+rmdir /sys/kernel/config/device-tree/overlays/eth-click

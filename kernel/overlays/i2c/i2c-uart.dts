@@ -1,7 +1,7 @@
 /*
  * Copyright 2017 cozmIC
  *
- * Pierre-Jean TEXIER <pjtexier@cozmic.com>
+ * Pierre-Jean TEXIER <pjtexier@cozmic.co>
  *
  * This file is dual-licensed: you can use it either under the terms
  * of the GPL or the X11 license, at your option. Note that this dual
@@ -64,12 +64,12 @@
 			pinctrl-0 = <&chip_en>;
 			status = "okay";
 			
-			sc16is750: sc16is750@4c {
+			sc16is750: sc16is750@4d {
 				compatible = "nxp,sc16is750";
-			    	reg = <0x4c>;
+			    	reg = <0x4d>;
 			    	clocks = <&osc14M>;
 			    	interrupt-parent = <&pio>;
-				interrupts = <4 1 IRQ_TYPE_EDGE_FALLING>;						
+				interrupts = <6 1 IRQ_TYPE_EDGE_FALLING>;						
          		};
                 };
 	};
@@ -81,10 +81,10 @@
 		__overlay__ {
 		
 			chip_en: chip_en@0 {
-				allwinner,pins = "PE4";										
-				allwinner,function = "gpio_in";								
-				allwinner,drive = <SUN4I_PINCTRL_10_MA>;						
-				allwinner,pull = <SUN4I_PINCTRL_PULL_UP>;                	
+				allwinner,pins = "PG1";
+				allwinner,function = "gpio_in";
+				allwinner,drive = <SUN4I_PINCTRL_10_MA>;
+				allwinner,pull = <SUN4I_PINCTRL_NO_PULL>;             	
 			};
 		};
 	};

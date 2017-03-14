@@ -45,42 +45,37 @@
 /dts-v1/;
 /plugin/;
 
-#include <dt-bindings/gpio/gpio.h>
+
 #include <dt-bindings/pinctrl/sun4i-a10.h>
+#include <dt-bindings/gpio/gpio.h>
 
-/ {
-	compatible = "nextthing,chip", "allwinner,sun5i-r8";
-		
-	fragment@0 {
-	
-		target-path = "/";
-
-		__overlay__ {
-		
-			gpio_exporter: gpio-exporter {
-				compatible = "linux,gpio-exporter";
-				pinctrl-names = "default";
-        			pinctrl-0 = <&chip_pio_pin>;
-				
-				in_gpio {
-					gpios = <&pio 4 6 0>; /* PE6 (CSID2) */		
-				};
-			};
-		};
-	};
-	
-	fragment@1 {
-    		target = <&pio>;
+/{
+  	compatible = "nextthing,chip", "allwinner,sun5i-r8"; 
+  
+  	fragment@0 {
+    		target-path = "/";
     		
     		__overlay__ {
-    		
-		      	chip_pio_pin: chip_pio_pin@0 {
-				allwinner,pins = "PE6";
-				allwinner,function = "gpio_in";
-				allwinner,drive = <SUN4I_PINCTRL_10_MA>;
-				allwinner,pull = <SUN4I_PINCTRL_PULL_UP>;
+	      		dht11: dht11@0 {
+				compatible = "dht11";
+				gpios = <&pio 1 2 GPIO_ACTIVE_HIGH>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&chip_dht11_pin>;
+				status = "okay";
       			};
     		};
   	};
+  
+	fragment@1 {
+	    	target = <&pio>;
+	    	__overlay__ {
+	      		chip_dht11_pin: chip_dht11_pin@0 {
+				allwinner,pins = "PB2";
+				allwinner,function = "gpio_in";
+				allwinner,drive = <SUN4I_PINCTRL_10_MA>;
+				allwinner,pull = <SUN4I_PINCTRL_PULL_UP>;
+	      		};
+	    	};
+	};
 };
 

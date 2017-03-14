@@ -1,7 +1,7 @@
 /*
  * Copyright 2017 cozmIC
  *
- * Pierre-Jean TEXIER <pjtexier@cozmic.com>
+ * Pierre-Jean TEXIER <pjtexier@cozmic.co>
  *
  * This file is dual-licensed: you can use it either under the terms
  * of the GPL or the X11 license, at your option. Note that this dual
@@ -63,8 +63,8 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			dpot: ad5231@0 {
-				compatible = "adi,ad5231";
+			dpot: ad5235@0 {
+				compatible = "adi,ad5235";
 				#io-channel-cells = <1>;	
 				reg = <0>;
 				spi-max-frequency = <5000000>;

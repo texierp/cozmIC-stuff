@@ -1,0 +1,6 @@
+python3 ../../tools/dip-header-generator.py dip-mkb.img --vid 2017 --pid 2 --vendor 'cozmIC' --product 'DIP cozmic mikrobus' --product-version 1
+
+and
+
+mkdir -p /lib/firmware/nextthingco/chip/
+cp dip-7e1-2.dtbo /lib/firmware/nextthingco/chip/
